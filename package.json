@@ -1,0 +1,740 @@
+{
+  "name": "commitwriter",
+  "displayName": "CommitWriter",
+  "description": "AI commit messages from staged Git diffs: OpenAI, Claude, Gemini, DeepSeek, OpenRouter, Ollama, LM Studio, llama.cpp, vLLM or OpenCode. Keys stay in the OS keychain. Never commits.",
+  "publisher": "malikrajat",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "CommitWriter"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/malikrajat/CommitWriter.git"
+  },
+  "bugs": {
+    "url": "https://github.com/malikrajat/CommitWriter/issues"
+  },
+  "homepage": "https://github.com/malikrajat/CommitWriter#readme",
+  "icon": "media/icon.png",
+  "galleryBanner": {
+    "color": "#312E81",
+    "theme": "dark"
+  },
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "SCM Providers",
+    "Machine Learning"
+  ],
+  "keywords": [
+    "git",
+    "commit",
+    "commit message",
+    "commit message generator",
+    "ai commit",
+    "conventional commits",
+    "ai",
+    "llm",
+    "openai",
+    "chatgpt",
+    "claude",
+    "anthropic",
+    "gemini",
+    "google gemini",
+    "deepseek",
+    "openrouter",
+    "ollama",
+    "lm studio",
+    "llama.cpp",
+    "vllm",
+    "opencode",
+    "local ai",
+    "local llm",
+    "offline",
+    "privacy",
+    "secret storage",
+    "source control",
+    "scm",
+    "diff",
+    "productivity"
+  ],
+  "extensionKind": [
+    "workspace"
+  ],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": false,
+      "description": "CommitWriter reads workspace diffs and sends them to a configured AI provider."
+    },
+    "virtualWorkspaces": false
+  },
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "commitwriter.generate",
+        "title": "Generate Commit Message",
+        "category": "CommitWriter",
+        "icon": "$(sparkle)"
+      },
+      {
+        "command": "commitwriter.generateStaged",
+        "title": "Generate Commit Message (Staged Only)",
+        "category": "CommitWriter"
+      },
+      {
+        "command": "commitwriter.regenerate",
+        "title": "Regenerate Commit Message",
+        "category": "CommitWriter"
+      },
+      {
+        "command": "commitwriter.editMessage",
+        "title": "Edit Commit Message",
+        "category": "CommitWriter"
+      },
+      {
+        "command": "commitwriter.cancel",
+        "title": "Cancel Generation",
+        "category": "CommitWriter",
+        "icon": "$(debug-stop)"
+      },
+      {
+        "command": "commitwriter.undo",
+        "title": "Undo Last Generated Message",
+        "category": "CommitWriter"
+      },
+      {
+        "command": "commitwriter.previewPayload",
+        "title": "Preview Payload To Be Sent",
+        "category": "CommitWriter"
+      },
+      {
+        "command": "commitwriter.selectRepository",
+        "title": "Select Repository",
+        "category": "CommitWriter"
+      },
+      {
+        "command": "commitwriter.selectProfile",
+        "title": "Select Provider Profile",
+        "category": "CommitWriter"
+      },
+      {
+        "command": "commitwriter.addProfile",
+        "title": "Add Provider Profile",
+        "category": "CommitWriter"
+      },
+      {
+        "command": "commitwriter.editProfile",
+        "title": "Edit Provider Profile",
+        "category": "CommitWriter"
+      },
+      {
+        "command": "commitwriter.removeProfile",
+        "title": "Remove Provider Profile",
+        "category": "CommitWriter"
+      },
+      {
+        "command": "commitwriter.testConnection",
+        "title": "Test Provider Connection",
+        "category": "CommitWriter"
+      },
+      {
+        "command": "commitwriter.validateProfiles",
+        "title": "Validate Provider Configuration",
+        "category": "CommitWriter"
+      },
+      {
+        "command": "commitwriter.selectModel",
+        "title": "Select Model",
+        "category": "CommitWriter"
+      },
+      {
+        "command": "commitwriter.manageProfiles",
+        "title": "Manage Provider Profiles",
+        "category": "CommitWriter"
+      },
+      {
+        "command": "commitwriter.setApiKey",
+        "title": "Set API Key For Profile",
+        "category": "CommitWriter"
+      },
+      {
+        "command": "commitwriter.clearApiKey",
+        "title": "Clear API Key For Profile",
+        "category": "CommitWriter"
+      },
+      {
+        "command": "commitwriter.useProfile",
+        "title": "Use Provider Profile",
+        "category": "CommitWriter"
+      },
+      {
+        "command": "commitwriter.toggleSetting",
+        "title": "Toggle Setting",
+        "category": "CommitWriter"
+      },
+      {
+        "command": "commitwriter.setTokenBudget",
+        "title": "Set Token Budget",
+        "category": "CommitWriter"
+      },
+      {
+        "command": "commitwriter.setRequestTimeout",
+        "title": "Set Request Timeout",
+        "category": "CommitWriter"
+      },
+      {
+        "command": "commitwriter.setMode",
+        "title": "Set Generation Mode",
+        "category": "CommitWriter"
+      },
+      {
+        "command": "commitwriter.allowSensitiveFilesOnce",
+        "title": "Allow Sensitive Files For Next Generation",
+        "category": "CommitWriter"
+      },
+      {
+        "command": "commitwriter.revokeEgressConsent",
+        "title": "Revoke Egress Consent",
+        "category": "CommitWriter"
+      },
+      {
+        "command": "commitwriter.showDiagnostics",
+        "title": "Show Diagnostics",
+        "category": "CommitWriter"
+      },
+      {
+        "command": "commitwriter.showOutput",
+        "title": "Show Log",
+        "category": "CommitWriter"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "commitwriter",
+          "title": "CommitWriter",
+          "icon": "media/activity-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "commitwriter": [
+        {
+          "id": "commitwriter.settings",
+          "name": "Settings",
+          "type": "webview",
+          "icon": "media/activity-icon.svg",
+          "contextualTitle": "CommitWriter"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "commitwriter.generate",
+          "when": "view == commitwriter.settings",
+          "group": "navigation@1"
+        },
+        {
+          "command": "commitwriter.addProfile",
+          "when": "view == commitwriter.settings",
+          "group": "navigation@2"
+        },
+        {
+          "command": "commitwriter.testConnection",
+          "when": "view == commitwriter.settings",
+          "group": "navigation@3"
+        }
+      ],
+      "scm/title": [
+        {
+          "command": "commitwriter.generate",
+          "when": "scmProvider == git && !commitwriter.generating",
+          "group": "navigation@10"
+        },
+        {
+          "command": "commitwriter.cancel",
+          "when": "commitwriter.generating",
+          "group": "navigation@11"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "commitwriter.cancel",
+          "when": "commitwriter.generating"
+        },
+        {
+          "command": "commitwriter.regenerate",
+          "when": "commitwriter.hasLastResult"
+        },
+        {
+          "command": "commitwriter.undo",
+          "when": "commitwriter.hasLastResult"
+        },
+        {
+          "command": "commitwriter.useProfile",
+          "when": "false"
+        },
+        {
+          "command": "commitwriter.toggleSetting",
+          "when": "false"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "CommitWriter",
+      "properties": {
+        "commitwriter.profiles": {
+          "type": "array",
+          "scope": "machine",
+          "default": [],
+          "markdownDescription": "Provider profiles. Never contains API keys; keys live in the OS keychain via SecretStorage. Workspace settings cannot override this property.",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "label",
+              "provider",
+              "model"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9][a-z0-9-]{1,30}$"
+              },
+              "label": {
+                "type": "string",
+                "maxLength": 60
+              },
+              "provider": {
+                "enum": [
+                  "deepseek",
+                  "openai",
+                  "anthropic",
+                  "gemini",
+                  "openrouter",
+                  "ollama",
+                  "lmstudio",
+                  "llamacpp",
+                  "vllm",
+                  "opencode",
+                  "custom"
+                ]
+              },
+              "dialect": {
+                "enum": [
+                  "openai-chat",
+                  "anthropic-messages",
+                  "gemini-generate",
+                  "ollama-native",
+                  "opencode-session"
+                ]
+              },
+              "baseUrl": {
+                "type": "string"
+              },
+              "model": {
+                "type": "string",
+                "maxLength": 120
+              },
+              "fallbackModel": {
+                "type": "string",
+                "maxLength": 120
+              },
+              "contextWindow": {
+                "type": "integer",
+                "minimum": 1024,
+                "maximum": 2000000
+              },
+              "temperature": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 2
+              },
+              "maxOutputTokens": {
+                "type": "integer",
+                "minimum": 32,
+                "maximum": 16384
+              },
+              "timeoutMs": {
+                "type": "integer",
+                "minimum": 5000,
+                "maximum": 300000,
+                "markdownDescription": "Per-profile request timeout. Cannot exceed the global `#commitwriter.provider.timeoutMs#` ceiling."
+              },
+              "headers": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              },
+              "authStyle": {
+                "enum": [
+                  "bearer",
+                  "api-key-header",
+                  "none"
+                ],
+                "markdownDescription": "Overrides the preset authentication strategy. Use `api-key-header` with `authHeaderName` for endpoints that expect a custom header."
+              },
+              "authHeaderName": {
+                "type": "string",
+                "pattern": "^[A-Za-z0-9-]+$",
+                "markdownDescription": "Header that carries the API key when `authStyle` is `api-key-header`. The value itself always comes from SecretStorage."
+              }
+            }
+          }
+        },
+        "commitwriter.activeProfileId": {
+          "type": "string",
+          "default": "",
+          "scope": "machine"
+        },
+        "commitwriter.mode": {
+          "type": "string",
+          "enum": [
+            "quick",
+            "smart",
+            "detailed"
+          ],
+          "default": "smart",
+          "scope": "resource",
+          "markdownDescription": "Generation mode. `quick` = subject only, smallest budget. `smart` = balanced default. `detailed` = largest budget, body, footers, map-reduce."
+        },
+        "commitwriter.modes.overrides": {
+          "type": "object",
+          "scope": "resource",
+          "default": {},
+          "markdownDescription": "Per-mode overrides. Values can only lower limits; higher values are clamped to the built-in ceiling.",
+          "properties": {
+            "quick": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "maxDiffTokens": {
+                  "type": "integer",
+                  "minimum": 500,
+                  "maximum": 200000
+                },
+                "maxFiles": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 2000
+                },
+                "maxOutputTokens": {
+                  "type": "integer",
+                  "minimum": 32,
+                  "maximum": 16384
+                },
+                "includeBody": {
+                  "type": "boolean"
+                },
+                "useMapReduce": {
+                  "type": "boolean"
+                },
+                "timeoutMs": {
+                  "type": "integer",
+                  "minimum": 5000,
+                  "maximum": 300000
+                }
+              }
+            },
+            "smart": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "maxDiffTokens": {
+                  "type": "integer",
+                  "minimum": 500,
+                  "maximum": 200000
+                },
+                "maxFiles": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 2000
+                },
+                "maxOutputTokens": {
+                  "type": "integer",
+                  "minimum": 32,
+                  "maximum": 16384
+                },
+                "includeBody": {
+                  "type": "boolean"
+                },
+                "useMapReduce": {
+                  "type": "boolean"
+                },
+                "timeoutMs": {
+                  "type": "integer",
+                  "minimum": 5000,
+                  "maximum": 300000
+                }
+              }
+            },
+            "detailed": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "maxDiffTokens": {
+                  "type": "integer",
+                  "minimum": 500,
+                  "maximum": 200000
+                },
+                "maxFiles": {
+                  "type": "integer",
+                  "minimum": 1,
+                  "maximum": 2000
+                },
+                "maxOutputTokens": {
+                  "type": "integer",
+                  "minimum": 32,
+                  "maximum": 16384
+                },
+                "includeBody": {
+                  "type": "boolean"
+                },
+                "useMapReduce": {
+                  "type": "boolean"
+                },
+                "timeoutMs": {
+                  "type": "integer",
+                  "minimum": 5000,
+                  "maximum": 300000
+                }
+              }
+            }
+          }
+        },
+        "commitwriter.context.includeStaged": {
+          "type": "boolean",
+          "default": true,
+          "scope": "resource",
+          "markdownDescription": "Include staged changes (the Git index) in the analysis."
+        },
+        "commitwriter.context.includeUnstaged": {
+          "type": "boolean",
+          "default": false,
+          "scope": "resource",
+          "markdownDescription": "Include unstaged working-tree changes in the analysis."
+        },
+        "commitwriter.context.includeUntracked": {
+          "type": "boolean",
+          "default": false,
+          "scope": "resource",
+          "markdownDescription": "Include untracked files in the analysis."
+        },
+        "commitwriter.context.maxDiffTokens": {
+          "type": "integer",
+          "default": 12000,
+          "minimum": 500,
+          "maximum": 200000,
+          "scope": "resource"
+        },
+        "commitwriter.context.maxFiles": {
+          "type": "integer",
+          "default": 200,
+          "minimum": 1,
+          "maximum": 2000,
+          "scope": "resource"
+        },
+        "commitwriter.context.maxFileBytes": {
+          "type": "integer",
+          "default": 262144,
+          "minimum": 1024,
+          "maximum": 2097152,
+          "scope": "resource"
+        },
+        "commitwriter.context.maxFileDiffLines": {
+          "type": "integer",
+          "default": 400,
+          "minimum": 20,
+          "maximum": 5000,
+          "scope": "resource"
+        },
+        "commitwriter.context.excludeGlobs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "scope": "resource",
+          "default": [
+            "**/package-lock.json",
+            "**/pnpm-lock.yaml",
+            "**/yarn.lock",
+            "**/*.min.js",
+            "**/*.map",
+            "**/dist/**",
+            "**/vendor/**",
+            "**/*.snap"
+          ],
+          "markdownDescription": "Additional exclusion globs. Built-in safety exclusions and sensitive-path blocking cannot be disabled."
+        },
+        "commitwriter.context.additionalExcludeGlobs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "scope": "resource"
+        },
+        "commitwriter.style.learnFromHistory": {
+          "type": "boolean",
+          "default": true,
+          "scope": "resource"
+        },
+        "commitwriter.style.historySamples": {
+          "type": "integer",
+          "default": 30,
+          "minimum": 0,
+          "maximum": 100,
+          "scope": "resource"
+        },
+        "commitwriter.conventional.enabled": {
+          "type": "boolean",
+          "default": true,
+          "scope": "resource"
+        },
+        "commitwriter.conventional.types": {
+          "type": "array",
+          "scope": "resource",
+          "default": [
+            "feat",
+            "fix",
+            "refactor",
+            "perf",
+            "docs",
+            "test",
+            "build",
+            "ci",
+            "chore",
+            "style",
+            "revert"
+          ]
+        },
+        "commitwriter.conventional.maxSubjectLength": {
+          "type": "integer",
+          "default": 72,
+          "minimum": 20,
+          "maximum": 120,
+          "scope": "resource"
+        },
+        "commitwriter.conventional.requireScope": {
+          "type": "boolean",
+          "default": false,
+          "scope": "resource"
+        },
+        "commitwriter.conventional.allowedScopes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "scope": "resource"
+        },
+        "commitwriter.output.language": {
+          "type": "string",
+          "default": "en",
+          "scope": "resource",
+          "markdownDescription": "BCP-47 language tag, or `auto` to follow the VS Code display language."
+        },
+        "commitwriter.output.includeBody": {
+          "type": "boolean",
+          "default": true,
+          "scope": "resource"
+        },
+        "commitwriter.output.includeIssueKeyFromBranch": {
+          "type": "boolean",
+          "default": false,
+          "scope": "resource"
+        },
+        "commitwriter.output.attribution": {
+          "type": "string",
+          "enum": [
+            "none",
+            "trailer"
+          ],
+          "default": "none",
+          "scope": "resource"
+        },
+        "commitwriter.output.overwriteDraft": {
+          "type": "string",
+          "enum": [
+            "ask",
+            "replace",
+            "append"
+          ],
+          "default": "ask",
+          "scope": "resource"
+        },
+        "commitwriter.provider.timeoutMs": {
+          "type": "integer",
+          "default": 120000,
+          "minimum": 5000,
+          "maximum": 300000,
+          "scope": "resource",
+          "markdownDescription": "Upper bound for a single provider request. The generation mode may choose a lower value."
+        },
+        "commitwriter.provider.maxRetries": {
+          "type": "integer",
+          "default": 2,
+          "minimum": 0,
+          "maximum": 5,
+          "scope": "resource"
+        },
+        "commitwriter.privacy.localOnly": {
+          "type": "boolean",
+          "default": false,
+          "scope": "resource",
+          "markdownDescription": "Only allow loopback endpoints. Enable this for offline or air-gapped setups with Ollama, LM Studio, llama.cpp or vLLM; all cloud providers are rejected."
+        },
+        "commitwriter.statusBar.enabled": {
+          "type": "boolean",
+          "default": true,
+          "scope": "resource"
+        },
+        "commitwriter.log.level": {
+          "type": "string",
+          "enum": [
+            "off",
+            "error",
+            "warn",
+            "info",
+            "debug"
+          ],
+          "default": "warn",
+          "scope": "machine"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "node esbuild.mjs",
+    "watch": "node esbuild.mjs --watch",
+    "typecheck": "tsc -p tsconfig.json --noEmit && tsc -p tsconfig.core.json --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "package": "npm run build && npx --yes @vscode/vsce package --no-dependencies",
+    "verify": "npm run typecheck && npm run lint && npm run test && npm run build"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^22.7.5",
+    "@types/vscode": "^1.90.0",
+    "esbuild": "^0.24.0",
+    "eslint": "^10.15.0",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.72.2",
+    "vitest": "^2.1.4"
+  }
+}
+
+
+

@@ -13,7 +13,7 @@ export const PRODUCT = {
   placeholder: true,
   id,
   displayName: 'CommitWriter',
-  publisher: 'malikrajat',
+  publisher: 'RajatMalik',
   configSection: id,
   storagePrefix: id,
   command: {

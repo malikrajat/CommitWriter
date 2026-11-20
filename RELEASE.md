@@ -34,7 +34,7 @@ Produces `commitwriter-<version>.vsix`.
 ```bash
 code --install-extension commitwriter-<version>.vsix --extensions-dir .tmp-ext
 code --list-extensions --extensions-dir .tmp-ext
-code --uninstall-extension malikrajat.commitwriter --extensions-dir .tmp-ext
+code --uninstall-extension RajatMalik.commitwriter --extensions-dir .tmp-ext
 ```
 
 Then install it in a normal VS Code window and check:

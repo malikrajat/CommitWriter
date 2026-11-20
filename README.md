@@ -86,10 +86,10 @@ The CommitWriter icon in the Activity Bar opens a sidebar with providers, change
 
 ## Installation
 
-**From the Marketplace:** search for **CommitWriter** (publisher `malikrajat`), or run:
+**From the Marketplace:** search for **CommitWriter** (publisher `RajatMalik`), or run:
 
 ```bash
-code --install-extension malikrajat.commitwriter
+code --install-extension RajatMalik.commitwriter
 ```
 
 **From a VSIX:**
@@ -228,7 +228,7 @@ No unchanged files are sent. The manifest always lists every analysed file, and 
 
 | Symptom | Fix |
 | --- | --- |
-| Details page shows "AI Code Review Export..." | You installed `diffscribe.diffscribe`. Uninstall it and install **CommitWriter** (`malikrajat.commitwriter`). |
+| Details page shows "AI Code Review Export..." | You installed `diffscribe.diffscribe`. Uninstall it and install **CommitWriter** (`RajatMalik.commitwriter`). |
 | Activity-bar icon is missing | Reload the window after installing; the icon is monochrome by design, the Marketplace icon is colourful. |
 | "No staged changes" | Stage files, or enable unstaged/untracked analysis. |
 | 401 or 403 | Re-enter the API key for the active profile. |

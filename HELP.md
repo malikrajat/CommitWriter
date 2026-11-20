@@ -5,7 +5,7 @@ Task-oriented help for CommitWriter. For the full reference see the
 
 ## Install and open
 
-1. Install **CommitWriter** (`malikrajat.commitwriter`) or the VSIX.
+1. Install **CommitWriter** (`RajatMalik.commitwriter`) or the VSIX.
 2. Reload the window.
 3. Click the CommitWriter icon in the Activity Bar. The sidebar opens.
 
